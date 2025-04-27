@@ -9,7 +9,6 @@ import { IoClose } from 'react-icons/io5';
 import { MdOutlineSchool } from 'react-icons/md'; 
 import gfg1 from './gfg1.jpg';
 
-
 type Certificate = {
   id: number;
   name: string;
