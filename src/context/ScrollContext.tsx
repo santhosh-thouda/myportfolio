@@ -47,7 +47,7 @@ export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [navItems]);
 
   return (
     <ScrollContext.Provider value={{ activeSection, setActiveSection }}>

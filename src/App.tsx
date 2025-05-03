@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { ScrollProvider } from './context/ScrollContext';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import MainLayout from './components/layout/MainLayout';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';

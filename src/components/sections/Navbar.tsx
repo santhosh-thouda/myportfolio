@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import { useScroll } from '../../context/ScrollContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faCode, faLaptopCode, faCertificate, faBriefcase, faEnvelope, faSun, faMoon, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faLaptopCode, faEnvelope, faSun, faMoon, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme() || { theme: 'light', toggleTheme: () => {} };
