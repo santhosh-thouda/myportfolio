@@ -5,13 +5,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHtml5, faJs, faReact, faBootstrap,
+  faHtml5, faCss3Alt, faJs, faReact, faBootstrap,
   faJava, faPhp, faNodeJs, faGitAlt, faGitlab,
   faGithub, faAngular, faWordpress, faPython
 } from '@fortawesome/free-brands-svg-icons';
 import {
-  faBrain, faRobot, faFileCode, faGlobe, faServer,
-  faTools, faLayerGroup, faDatabase
+  faDatabase, faBrain, faRobot, faFileCode,
+  faGlobe, faServer, faTools, faLayerGroup,
+  faLeaf, faTable, faFile
 } from '@fortawesome/free-solid-svg-icons';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -67,30 +68,10 @@ const Skills: React.FC = () => {
     { name: 'Java', category: 'backend', icon: <FontAwesomeIcon icon={faJava} />, color: '#007396' },
     { name: 'PHP', category: 'backend', icon: <FontAwesomeIcon icon={faPhp} />, color: '#777BB4' },
     // Databases
-    { 
-      name: 'MySQL', 
-      category: 'databases', 
-      icon: <img src="/assets/logos/mysql.svg" alt="MySQL" className="w-10 h-10" style={{ filter: 'url(#colorize-mysql)' }} />, 
-      color: '#4479A1' 
-    },
-    { 
-      name: 'MongoDB', 
-      category: 'databases', 
-      icon: <img src="/assets/logos/mongodb.svg" alt="MongoDB" className="w-10 h-10" style={{ filter: 'url(#colorize-mongodb)' }} />, 
-      color: '#47A248' 
-    },
-    { 
-      name: 'SQL Server', 
-      category: 'databases', 
-      icon: <img src="/assets/logos/sqlserver.svg" alt="SQL Server" className="w-10 h-10" style={{ filter: 'url(#colorize-sqlserver)' }} />, 
-      color: '#CC2927' 
-    },
-    { 
-      name: 'SQLite', 
-      category: 'databases', 
-      icon: <img src="/assets/logos/sqlite.svg" alt="SQLite" className="w-10 h-10" style={{ filter: 'url(#colorize-sqlite)' }} />, 
-      color: '#003B57' 
-    },
+    { name: 'MySQL', category: 'databases', icon: <FontAwesomeIcon icon={faDatabase} />, color: '#4479A1' },
+    { name: 'MongoDB', category: 'databases', icon: <FontAwesomeIcon icon={faLeaf} />, color: '#47A248' },
+    { name: 'SQL Server', category: 'databases', icon: <FontAwesomeIcon icon={faTable} />, color: '#CC2927' },
+    { name: 'SQLite', category: 'databases', icon: <FontAwesomeIcon icon={faFile} />, color: '#003B57' },
     // Tools
     { name: 'Git', category: 'tools', icon: <FontAwesomeIcon icon={faGitAlt} />, color: '#F05032' },
     { name: 'GitHub', category: 'tools', icon: <FontAwesomeIcon icon={faGithub} />, color: '#181717' },
@@ -162,28 +143,6 @@ const Skills: React.FC = () => {
       ref={ref}
       className="relative py-24 bg-gradient-to-br from-neutral-light to-primary/10 dark:from-neutral-dark dark:to-primary-dark/20 overflow-hidden"
     >
-      {/* SVG Filters for Colorizing Logos */}
-      <svg width="0" height="0">
-        <defs>
-          <filter id="colorize-mysql">
-            <feFlood floodColor="#4479A1" result="color" />
-            <feComposite in="color" in2="SourceAlpha" operator="in" />
-          </filter>
-          <filter id="colorize-mongodb">
-            <feFlood floodColor="#47A248" result="color" />
-            <feComposite in="color" in2="SourceAlpha" operator="in" />
-          </filter>
-          <filter id="colorize-sqlserver">
-            <feFlood floodColor="#CC2927" result="color" />
-            <feComposite in="color" in2="SourceAlpha" operator="in" />
-          </filter>
-          <filter id="colorize-sqlite">
-            <feFlood floodColor="#003B57" result="color" />
-            <feComposite in="color" in2="SourceAlpha" operator="in" />
-          </filter>
-        </defs>
-      </svg>
-
       <motion.div
         animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.3, 0.15] }}
         transition={{ duration: 12, repeat: Infinity }}
