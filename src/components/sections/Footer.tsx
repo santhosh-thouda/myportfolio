@@ -1,12 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaCodepen } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faTwitter, faCodepen } from '@fortawesome/free-brands-svg-icons';
 
 const Footer: React.FC = () => {
   const socialLinks = [
-    { icon: <FaGithub />, url: 'https://github.com/santhosh-thouda' }, // TODO: Replace with your GitHub URL
-    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/in/santhosh-t-3202461bb/' }, // TODO: Replace with your LinkedIn URL
-    { icon: <FaTwitter />, url: 'https://twitter.com/yourusername' }, // TODO: Replace with your Twitter URL
+    { icon: <FontAwesomeIcon icon={faGithub} />, url: 'https://github.com/santhosh-thouda' },
+    { icon: <FontAwesomeIcon icon={faLinkedin} />, url: 'https://www.linkedin.com/in/santhosh-t-3202461bb/' },
+    { icon: <FontAwesomeIcon icon={faTwitter} />, url: 'https://twitter.com/yourusername' },
   ];
 
   const container = {

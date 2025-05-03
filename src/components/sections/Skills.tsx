@@ -3,18 +3,16 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaBootstrap,
-  FaJava, FaPhp, FaNodeJs, FaDatabase, FaGitAlt,
-  FaGitlab, FaGithub, FaAngular, FaWordpress, FaPython
-} from 'react-icons/fa';
-import { DiMongodb, DiMsqlServer, DiSqllite } from 'react-icons/di';
-import { GiBrain } from 'react-icons/gi';
-import { AiOutlineRobot } from 'react-icons/ai';
-import { SiTypescript } from 'react-icons/si';
+  faHtml5, faCss3Alt, faJs, faReact, faBootstrap,
+  faJava, faPhp, faNodeJs, faGitAlt, faGitlab,
+  faGithub, faAngular, faWordpress, faPython
+} from '@fortawesome/free-brands-svg-icons';
 import {
-  MdOutlineWeb, MdOutlineStorage, MdOutlineBuild, MdOutlineCategory
-} from 'react-icons/md';
+  faBrain, faRobot, faFileCode, faGlobe, faServer,
+  faTools, faLayerGroup, faDatabase
+} from '@fortawesome/free-solid-svg-icons';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,39 +56,59 @@ const Skills: React.FC = () => {
 
   const skills: Skill[] = [
     // Frontend
-    { name: 'HTML/CSS', category: 'frontend', icon: <FaHtml5 />, color: '#E44D26' },
-    { name: 'JavaScript', category: 'frontend', icon: <FaJsSquare />, color: '#F7DF1E' },
-    { name: 'TypeScript', category: 'frontend', icon: <SiTypescript />, color: '#3178C6' },
-    { name: 'React.js', category: 'frontend', icon: <FaReact />, color: '#61DAFB' },
-    { name: 'Angular', category: 'frontend', icon: <FaAngular />, color: '#DD0031' },
-    { name: 'Bootstrap', category: 'frontend', icon: <FaBootstrap />, color: '#7952B3' },
+    { name: 'HTML/CSS', category: 'frontend', icon: <FontAwesomeIcon icon={faHtml5} />, color: '#E44D26' },
+    { name: 'JavaScript', category: 'frontend', icon: <FontAwesomeIcon icon={faJs} />, color: '#F7DF1E' },
+    { name: 'TypeScript', category: 'frontend', icon: <FontAwesomeIcon icon={faFileCode} />, color: '#3178C6' },
+    { name: 'React.js', category: 'frontend', icon: <FontAwesomeIcon icon={faReact} />, color: '#61DAFB' },
+    { name: 'Angular', category: 'frontend', icon: <FontAwesomeIcon icon={faAngular} />, color: '#DD0031' },
+    { name: 'Bootstrap', category: 'frontend', icon: <FontAwesomeIcon icon={faBootstrap} />, color: '#7952B3' },
     // Backend
-    { name: 'Node.js', category: 'backend', icon: <FaNodeJs />, color: '#339933' },
-    { name: 'Java', category: 'backend', icon: <FaJava />, color: '#007396' },
-    { name: 'PHP', category: 'backend', icon: <FaPhp />, color: '#777BB4' },
+    { name: 'Node.js', category: 'backend', icon: <FontAwesomeIcon icon={faNodeJs} />, color: '#339933' },
+    { name: 'Java', category: 'backend', icon: <FontAwesomeIcon icon={faJava} />, color: '#007396' },
+    { name: 'PHP', category: 'backend', icon: <FontAwesomeIcon icon={faPhp} />, color: '#777BB4' },
     // Databases
-    { name: 'MySQL', category: 'databases', icon: <FaDatabase />, color: '#4479A1' },
-    { name: 'MongoDB', category: 'databases', icon: <DiMongodb />, color: '#47A248' },
-    { name: 'SQL Server', category: 'databases', icon: <DiMsqlServer />, color: '#CC2927' },
-    { name: 'SQLite', category: 'databases', icon: <DiSqllite />, color: '#003B57' },
+    { 
+      name: 'MySQL', 
+      category: 'databases', 
+      icon: <img src="/assets/logos/mysql.svg" alt="MySQL" className="w-10 h-10" style={{ filter: 'url(#colorize-mysql)' }} />, 
+      color: '#4479A1' 
+    },
+    { 
+      name: 'MongoDB', 
+      category: 'databases', 
+      icon: <img src="/assets/logos/mongodb.svg" alt="MongoDB" className="w-10 h-10" style={{ filter: 'url(#colorize-mongodb)' }} />, 
+      color: '#47A248' 
+    },
+    { 
+      name: 'SQL Server', 
+      category: 'databases', 
+      icon: <img src="/assets/logos/sqlserver.svg" alt="SQL Server" className="w-10 h-10" style={{ filter: 'url(#colorize-sqlserver)' }} />, 
+      color: '#CC2927' 
+    },
+    { 
+      name: 'SQLite', 
+      category: 'databases', 
+      icon: <img src="/assets/logos/sqlite.svg" alt="SQLite" className="w-10 h-10" style={{ filter: 'url(#colorize-sqlite)' }} />, 
+      color: '#003B57' 
+    },
     // Tools
-    { name: 'Git', category: 'tools', icon: <FaGitAlt />, color: '#F05032' },
-    { name: 'GitHub', category: 'tools', icon: <FaGithub />, color: '#181717' },
-    { name: 'GitLab', category: 'tools', icon: <FaGitlab />, color: '#FCA121' },
+    { name: 'Git', category: 'tools', icon: <FontAwesomeIcon icon={faGitAlt} />, color: '#F05032' },
+    { name: 'GitHub', category: 'tools', icon: <FontAwesomeIcon icon={faGithub} />, color: '#181717' },
+    { name: 'GitLab', category: 'tools', icon: <FontAwesomeIcon icon={faGitlab} />, color: '#FCA121' },
     // Others
-    { name: 'MERN Stack', category: 'others', icon: <FaReact />, color: '#61DAFB' },
-    { name: 'WordPress', category: 'others', icon: <FaWordpress />, color: '#21759B' },
-    { name: 'Generative AI', category: 'others', icon: <AiOutlineRobot />, color: '#FF6B6B' },
-    { name: 'DSA', category: 'others', icon: <GiBrain />, color: '#9C27B0' },
-    { name: 'Python', category: 'others', icon: <FaPython />, color: '#3776AB' },
+    { name: 'MERN Stack', category: 'others', icon: <FontAwesomeIcon icon={faReact} />, color: '#61DAFB' },
+    { name: 'WordPress', category: 'others', icon: <FontAwesomeIcon icon={faWordpress} />, color: '#21759B' },
+    { name: 'Generative AI', category: 'others', icon: <FontAwesomeIcon icon={faRobot} />, color: '#FF6B6B' },
+    { name: 'DSA', category: 'others', icon: <FontAwesomeIcon icon={faBrain} className="text-primary text-3xl" />, color: '#9C27B0' },
+    { name: 'Python', category: 'others', icon: <FontAwesomeIcon icon={faPython} />, color: '#3776AB' },
   ];
 
   const categories: Category[] = [
-    { id: 'frontend', name: 'Frontend', icon: <MdOutlineWeb /> },
-    { id: 'backend', name: 'Backend', icon: <MdOutlineStorage /> },
-    { id: 'databases', name: 'Databases', icon: <FaDatabase /> },
-    { id: 'tools', name: 'Tools', icon: <MdOutlineBuild /> },
-    { id: 'others', name: 'Others', icon: <MdOutlineCategory /> },
+    { id: 'frontend', name: 'Frontend', icon: <FontAwesomeIcon icon={faGlobe} /> },
+    { id: 'backend', name: 'Backend', icon: <FontAwesomeIcon icon={faServer} /> },
+    { id: 'databases', name: 'Databases', icon: <FontAwesomeIcon icon={faDatabase} /> },
+    { id: 'tools', name: 'Tools', icon: <FontAwesomeIcon icon={faTools} /> },
+    { id: 'others', name: 'Others', icon: <FontAwesomeIcon icon={faLayerGroup} /> },
   ];
 
   const container = {
@@ -130,10 +148,10 @@ const Skills: React.FC = () => {
 
   const hoverEffect = {
     scale: 1.15,
-    rotate: [0, -5, 5, -5, 5, 0],
+    rotate: 5,
     boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
     transition: {
-      duration: 0.8,
+      duration: 0.3,
       ease: 'easeInOut',
     },
   };
@@ -144,7 +162,28 @@ const Skills: React.FC = () => {
       ref={ref}
       className="relative py-24 bg-gradient-to-br from-neutral-light to-primary/10 dark:from-neutral-dark dark:to-primary-dark/20 overflow-hidden"
     >
-      {/* Animated Background Elements */}
+      {/* SVG Filters for Colorizing Logos */}
+      <svg width="0" height="0">
+        <defs>
+          <filter id="colorize-mysql">
+            <feFlood floodColor="#4479A1" result="color" />
+            <feComposite in="color" in2="SourceAlpha" operator="in" />
+          </filter>
+          <filter id="colorize-mongodb">
+            <feFlood floodColor="#47A248" result="color" />
+            <feComposite in="color" in2="SourceAlpha" operator="in" />
+          </filter>
+          <filter id="colorize-sqlserver">
+            <feFlood floodColor="#CC2927" result="color" />
+            <feComposite in="color" in2="SourceAlpha" operator="in" />
+          </filter>
+          <filter id="colorize-sqlite">
+            <feFlood floodColor="#003B57" result="color" />
+            <feComposite in="color" in2="SourceAlpha" operator="in" />
+          </filter>
+        </defs>
+      </svg>
+
       <motion.div
         animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.3, 0.15] }}
         transition={{ duration: 12, repeat: Infinity }}
@@ -198,10 +237,8 @@ const Skills: React.FC = () => {
             <motion.div
               key={category.id}
               variants={item}
-              whileHover={{ scale: 1.05, boxShadow: '0 15px 30px rgba(0, 0, 0, 0.2)' }}
               className="glass rounded-2xl shadow-lg p-8 border border-neutral-200/20 dark:border-neutral-400/20"
             >
-              {/* Glow Effect */}
               <motion.div
                 animate={{
                   scale: [1, 1.1, 1],

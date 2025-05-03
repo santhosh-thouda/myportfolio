@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 type Project = {
   id: number;
@@ -168,26 +170,19 @@ const Projects: React.FC = () => {
     },
   ];
 
-  // Curated filters to avoid niche tags and ensure relevant filtering
   const filters = ['All', 'React', 'TypeScript', 'JavaScript', 'Java', 'PHP', 'MySQL', 'Tailwind CSS'];
 
-  // Case-insensitive filtering
   const filteredProjects =
-  activeFilter === 'All'
-    ? projects
-    : projects.filter((project) =>
-        project.tags.some((tag) => {
-          // Normalize both the tag and filter for better matching
-          const normalizedTag = tag.toLowerCase().replace(/\s+/g, '');
-          const normalizedFilter = activeFilter.toLowerCase().replace(/\s+/g, '');
-          
-          // Check if tag includes filter or vice versa for broader matching
-          return normalizedTag.includes(normalizedFilter) || 
-                 normalizedFilter.includes(normalizedTag);
-        })
-      );
+    activeFilter === 'All'
+      ? projects
+      : projects.filter((project) =>
+          project.tags.some((tag) => {
+            const normalizedTag = tag.toLowerCase().replace(/\s+/g, '');
+            const normalizedFilter = activeFilter.toLowerCase().replace(/\s+/g, '');
+            return normalizedTag.includes(normalizedFilter) || normalizedFilter.includes(normalizedTag);
+          })
+        );
 
-  // Debug: Log filtered projects to console
   useEffect(() => {
     console.log(`Active Filter: ${activeFilter}, Filtered Projects:`, filteredProjects);
   }, [activeFilter, filteredProjects]);
@@ -198,7 +193,6 @@ const Projects: React.FC = () => {
       ref={ref}
       className="relative py-24 bg-gradient-to-br from-neutral-light to-primary/10 dark:from-neutral-dark dark:to-primary-dark/20 overflow-hidden"
     >
-      {/* Animated Background Elements */}
       <motion.div
         animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.3, 0.15] }}
         transition={{ duration: 12, repeat: Infinity }}
@@ -289,7 +283,6 @@ const Projects: React.FC = () => {
                   className="relative glass rounded-2xl overflow-hidden shadow-xl border border-neutral-200/20 dark:border-neutral-400/20 hover:border-primary transition-all cursor-pointer"
                   layout
                 >
-                  {/* Glow effect */}
                   <motion.div
                     animate={{
                       scale: [1, 1.1, 1],
@@ -331,7 +324,7 @@ const Projects: React.FC = () => {
                             whileTap={{ scale: 0.9 }}
                             className="w-8 h-8 rounded-full glass flex items-center justify-center shadow-sm hover:shadow-md"
                           >
-                            <FaGithub className="w-4 h-4 text-gray-700 dark:text-gray-300" />
+                            <FontAwesomeIcon icon={faGithub} className="w-4 h-4 text-gray-700 dark:text-gray-300" />
                           </motion.a>
                           {project.liveUrl && (
                             <motion.a
@@ -342,7 +335,7 @@ const Projects: React.FC = () => {
                               whileTap={{ scale: 0.9 }}
                               className="w-8 h-8 rounded-full glass flex items-center justify-center shadow-sm hover:shadow-md"
                             >
-                              <FaExternalLinkAlt className="w-4 h-4 text-gray-700 dark:text-gray-300" />
+                              <FontAwesomeIcon icon={faExternalLinkAlt} className="w-4 h-4 text-gray-700 dark:text-gray-300" />
                             </motion.a>
                           )}
                         </motion.div>
@@ -379,7 +372,7 @@ const Projects: React.FC = () => {
                         whileHover={{ x: 5 }}
                         className="flex items-center text-sm text-gray-700 hover:text-primary dark:text-gray-400 dark:hover:text-primary font-medium"
                       >
-                        <FaGithub className="w-4 h-4 mr-2" />
+                        <FontAwesomeIcon icon={faGithub} className="w-4 h-4 mr-2" />
                         View Code
                       </motion.a>
                       {project.liveUrl && (
@@ -390,7 +383,7 @@ const Projects: React.FC = () => {
                           whileHover={{ x: 5 }}
                           className="flex items-center text-sm text-gray-700 hover:text-primary dark:text-gray-400 dark:hover:text-primary font-medium"
                         >
-                          <FaExternalLinkAlt className="w-4 h-4 mr-2" />
+                          <FontAwesomeIcon icon={faExternalLinkAlt} className="w-4 h-4 mr-2" />
                           Live Demo
                         </motion.a>
                       )}

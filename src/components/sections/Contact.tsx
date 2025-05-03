@@ -4,7 +4,8 @@ import { useInView } from 'react-intersection-observer';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import emailjs from 'emailjs-com';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone, faMapMarkerAlt, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 const Contact: React.FC = () => {
   const [ref, inView] = useInView({
@@ -157,9 +158,9 @@ const Contact: React.FC = () => {
             className="lg:w-1/2 space-y-6"
           >
             {[
-              { icon: <FaEnvelope />, title: 'Email', value: 'santhoshthouda7576@gmail.com' },
-              { icon: <FaPhone />, title: 'Phone', value: '+91-8501807576' },
-              { icon: <FaMapMarkerAlt />, title: 'Location', value: 'Hyderabad, India (502306)' },
+              { icon: <FontAwesomeIcon icon={faEnvelope} />, title: 'Email', value: 'santhoshthouda7576@gmail.com' },
+              { icon: <FontAwesomeIcon icon={faPhone} />, title: 'Phone', value: '+91-8501807576' },
+              { icon: <FontAwesomeIcon icon={faMapMarkerAlt} />, title: 'Location', value: 'Hyderabad, India (502306)' },
             ].map((info, index) => (
               <motion.div
                 key={index}
@@ -193,7 +194,7 @@ const Contact: React.FC = () => {
 
           {/* Right Half: Form or Success Message */}
           <motion.div
-            variants={container} // Changed from item to container for staggered child animations
+            variants={container}
             initial="hidden"
             animate={inView ? 'visible' : 'hidden'}
             className="lg:w-1/2"
@@ -222,7 +223,7 @@ const Contact: React.FC = () => {
                     animate={{ scale: 1, rotate: 360 }}
                     transition={{ type: 'spring', stiffness: 500 }}
                   >
-                    <FaCheckCircle className="w-8 h-8 text-primary dark:text-primary" />
+                    <FontAwesomeIcon icon={faCheckCircle} className="w-8 h-8 text-primary dark:text-primary" />
                   </motion.div>
                   <motion.h3
                     variants={item}

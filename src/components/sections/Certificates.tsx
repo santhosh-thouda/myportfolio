@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-// import { FaHtml5, FaNodeJs } from 'react-icons/fa';
-import { FaHtml5, FaNodeJs } from 'react-icons/fa';
-import { GiBrain } from 'react-icons/gi';
-import { AiOutlineRobot } from 'react-icons/ai';
-import { IoClose } from 'react-icons/io5';
-import { MdOutlineSchool } from 'react-icons/md'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHtml5, faNodeJs } from '@fortawesome/free-brands-svg-icons';
+import { faBrain, faRobot, faTimes, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import gfg1 from './gfg1.jpg';
 
-type Certificate = {
+interface Certificate {
   id: number;
   name: string;
   issuer: string;
@@ -18,7 +15,7 @@ type Certificate = {
   link?: string;
   logo: string;
   certificateImage: string;
-};
+}
 
 const Certificates: React.FC = () => {
   const [ref, inView] = useInView({
@@ -27,6 +24,7 @@ const Certificates: React.FC = () => {
   });
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
 
+  // Animation variants
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -96,7 +94,7 @@ const Certificates: React.FC = () => {
       name: 'HTML, CSS, JavaScript for Web Developers',
       issuer: 'Johns Hopkins University - Coursera',
       duration: '40 hours',
-      icon: <FaHtml5 />,
+      icon: <FontAwesomeIcon icon={faHtml5} className="text-primary text-3xl" />,
       link: 'https://www.coursera.org/account/accomplishments/certificate/U3QTXEEUV7WU',
       logo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM6rdueeJ5UB6Xu-kvoyc69uKpMJAcbRadsw&s',
       certificateImage: 'https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~U3QTXEEUV7WU/CERTIFICATE_LANDING_PAGE~U3QTXEEUV7WU.jpeg',
@@ -106,7 +104,7 @@ const Certificates: React.FC = () => {
       name: 'Server-side JavaScript with Node.js',
       issuer: 'NIIT - Coursera',
       duration: '40 hours',
-      icon: <FaNodeJs />,
+      icon: <FontAwesomeIcon icon={faNodeJs} className="text-primary text-3xl" />,
       link: 'https://www.coursera.org/account/accomplishments/certificate/KASR86EAPJDA',
       logo: 'https://www.vhv.rs/dpng/d/442-4427180_share-with-your-friends-niit-logo-in-png.png',
       certificateImage: 'https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~KASR86EAPJDA/CERTIFICATE_LANDING_PAGE~KASR86EAPJDA.jpeg',
@@ -116,17 +114,17 @@ const Certificates: React.FC = () => {
       name: 'DSA Self-Paced Course',
       issuer: 'GeeksforGeeks',
       duration: '8 weeks',
-      icon: <GiBrain className="w-6 h-6" />,
+      icon: <FontAwesomeIcon icon={faBrain} className="text-primary text-3xl" />,
       link: 'https://media.geeksforgeeks.org/courses/certificates/04a10bd3369202ed88f7c1dc9195df5c.pdf',
       logo: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/GeeksForGeeks_logo.png',
-      certificateImage: 'gfg1.jpg',
+      certificateImage: gfg1,
     },
     {
       id: 4,
       name: 'Generative AI for Everyone',
       issuer: 'DeepLearning.AI - Coursera',
       duration: '5 hours',
-      icon: <AiOutlineRobot />,
+      icon: <FontAwesomeIcon icon={faRobot} className="text-primary text-3xl" />,
       link: 'https://www.coursera.org/account/accomplishments/certificate/QAWGCXWU26ER',
       logo: 'https://yt3.googleusercontent.com/ytc/AIdro_nS1r8vYA9YVt1AQB355iMbBJNMg0OJn0I4J53_4T9xAes=s900-c-k-c0x00ffffff-no-rj',
       certificateImage: 'https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~QAWGCXWU26ER/CERTIFICATE_LANDING_PAGE~QAWGCXWU26ER.jpeg',
@@ -139,7 +137,7 @@ const Certificates: React.FC = () => {
       ref={ref}
       className="relative py-24 bg-gradient-to-br from-neutral-light to-primary/10 dark:from-neutral-dark dark:to-primary-dark/20 overflow-hidden"
     >
-      {/* Animated Background Elements */}
+      {/* Background animation elements */}
       <motion.div
         animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.3, 0.15] }}
         transition={{ duration: 12, repeat: Infinity }}
@@ -197,7 +195,6 @@ const Certificates: React.FC = () => {
               onClick={() => setSelectedCertificate(cert)}
               className="relative glass rounded-xl shadow-lg border border-neutral-200/20 dark:border-neutral-400/20 hover:border-primary transition-all p-8 cursor-pointer flex flex-col"
             >
-              {/* Glow effect */}
               <motion.div
                 animate={{
                   scale: [1, 1.1, 1],
@@ -206,7 +203,7 @@ const Certificates: React.FC = () => {
                 }}
                 className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl opacity-20 -z-10"
               />
-              {/* Logo at top */}
+              
               <div className="flex justify-center mb-6">
                 <motion.img
                   src={cert.logo}
@@ -216,11 +213,10 @@ const Certificates: React.FC = () => {
                   transition={{ type: 'spring', stiffness: 500 }}
                 />
               </div>
-              {/* Content below logo */}
+              
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-4">
                   <motion.span
-                    className="text-3xl text-primary dark:text-primary"
                     whileHover={{ scale: 1.2, rotate: 360 }}
                     transition={{ type: 'spring', stiffness: 500 }}
                   >
@@ -250,7 +246,7 @@ const Certificates: React.FC = () => {
                     }}
                     className="inline-flex items-center text-sm text-primary dark:text-primary"
                   >
-                    <MdOutlineSchool className="mr-2 w-4 h-4" />
+                    <FontAwesomeIcon icon={faGraduationCap} className="mr-2 w-4 h-4" />
                     View Certificate
                   </motion.a>
                 )}
@@ -260,7 +256,6 @@ const Certificates: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Modal for certificate image */}
       <AnimatePresence>
         {selectedCertificate && (
           <motion.div
@@ -281,7 +276,7 @@ const Certificates: React.FC = () => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <IoClose className="w-6 h-6" />
+                <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
               </motion.button>
               <motion.img
                 src={selectedCertificate.certificateImage}

@@ -2,7 +2,8 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../context/ThemeContext';
 import { useScroll } from '../../context/ScrollContext';
-import { FaHome, FaUser, FaCode, FaLaptopCode, FaCertificate, FaBriefcase, FaEnvelope, FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faUser, faCode, faLaptopCode, faCertificate, faBriefcase, faEnvelope, faSun, faMoon, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar: React.FC = () => {
   const { theme, toggleTheme } = useTheme() || { theme: 'light', toggleTheme: () => {} };
@@ -10,13 +11,13 @@ const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: <FaHome /> },
-    { id: 'about', label: 'About', icon: <FaUser /> },
-    // { id: 'projects', label: 'Projects', icon: <FaCode /> },
-    { id: 'skills', label: 'Skills', icon: <FaLaptopCode /> },
-    // { id: 'certificates', label: 'Certificates', icon: <FaCertificate /> },
-    // { id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
-    { id: 'contact', label: 'Contact', icon: <FaEnvelope /> },
+    { id: 'home', label: 'Home', icon: <FontAwesomeIcon icon={faHome} /> },
+    { id: 'about', label: 'About', icon: <FontAwesomeIcon icon={faUser} /> },
+    // { id: 'projects', label: 'Projects', icon: <FontAwesomeIcon icon={faCode} /> },
+    { id: 'skills', label: 'Skills', icon: <FontAwesomeIcon icon={faLaptopCode} /> },
+    // { id: 'certificates',  label: 'Certificates', icon: <FontAwesomeIcon icon={faCertificate} /> },
+    // { id: 'experience', label: 'Experience', icon: <FontAwesomeIcon icon={faBriefcase} /> },
+    { id: 'contact', label: 'Contact', icon: <FontAwesomeIcon icon={faEnvelope} /> },
   ];
 
   const containerVariants = {
@@ -96,7 +97,7 @@ const Navbar: React.FC = () => {
               className="p-2 rounded-full text-neutral-400 hover:text-white hover:bg-gradient-to-r from-primary to-secondary"
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <FaSun /> : <FaMoon />}
+              {theme === 'dark' ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}
             </motion.button>
           </motion.div>
 
@@ -109,7 +110,7 @@ const Navbar: React.FC = () => {
               className="p-2 rounded-full text-neutral-400 hover:text-white hover:bg-gradient-to-r from-primary to-secondary"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+              {mobileMenuOpen ? <FontAwesomeIcon icon={faTimes} /> : <FontAwesomeIcon icon={faBars} />}
             </motion.button>
           </motion.div>
         </div>
@@ -154,7 +155,7 @@ const Navbar: React.FC = () => {
                 whileHover={{ scale: 1.02, background: 'linear-gradient(45deg, #4F46E5, #EC4899)', color: '#fff' }}
                 className="flex items-center w-full text-left px-3 py-2 rounded-md text-base font-medium text-neutral-400 hover:text-white"
               >
-                <span className="mr-3">{theme === 'dark' ? <FaSun /> : <FaMoon />}</span>
+                <span className="mr-3">{theme === 'dark' ? <FontAwesomeIcon icon={faSun} /> : <FontAwesomeIcon icon={faMoon} />}</span>
                 Switch to {theme === 'dark' ? 'Light' : 'Dark'} Mode
               </motion.button>
             </motion.div>

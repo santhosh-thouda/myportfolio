@@ -48,7 +48,7 @@ const Education: React.FC = () => {
     {
       institution: 'Lovely Professional University',
       degree: 'Bachelor of Technology - Computer Science and Engineering',
-      percentage: '68%',
+      percentage: '72%',
       period: '2023 - Present',
       location: 'Punjab, India',
     },

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import floating from './floating.jpg';
 
+
 const About: React.FC = () => {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: false });
 
