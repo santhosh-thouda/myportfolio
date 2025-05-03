@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHtml5, faCss3Alt, faJs, faReact, faBootstrap,
+  faHtml5, faJs, faReact, faBootstrap,
   faJava, faPhp, faNodeJs, faGitAlt, faGitlab,
   faGithub, faAngular, faWordpress, faPython
 } from '@fortawesome/free-brands-svg-icons';
