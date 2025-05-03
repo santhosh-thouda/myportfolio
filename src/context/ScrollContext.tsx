@@ -16,18 +16,18 @@ type ScrollProviderProps = {
   children: ReactNode;
 };
 
+const navItems: NavItem[] = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'certificates', label: 'Certificates' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'contact', label: 'Contact' },
+];
+
 export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
   const [activeSection, setActiveSection] = useState('home');
-
-  const navItems: NavItem[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'certificates', label: 'Certificates' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'contact', label: 'Contact' },
-  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -47,7 +47,7 @@ export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
     });
 
     return () => observer.disconnect();
-  }, [navItems]);
+  }, []);
 
   return (
     <ScrollContext.Provider value={{ activeSection, setActiveSection }}>
